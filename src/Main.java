@@ -1,6 +1,41 @@
 public class Main {
-    public static void main(String[] args) {
 
+    //function :
+    static void AfficherTableau (int[] scores){
+        for (int i = 0; i < scores.length; i++) {
+            int s = scores[i];
+            System.out.println(s);
+        }
+    }
+
+    // on definie une fonction nommé TableauGrand
+    // qui prend 1 parametre Tab de type int[]
+    //et qui renvoie un int
+    static int TableauGrand (int[] tab ){
+        int max = -1;
+        for (int i = 0; i < tab.length; i++){
+            if (tab[i] > max){
+                max = tab[i];
+            }
+        }
+        return max;
+    }
+
+
+    static boolean TableauInf (int[] tab){
+        for (int valeur : tab){
+            if (valeur < 10){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+
+
+    public static void main(String[] args) {
         int[] scores = new int[7];
         scores[0] = 10;
         scores[1] = 20;
@@ -10,15 +45,19 @@ public class Main {
         scores[5] = 60;
         scores[6] = 70;
 
-        for (int i = 0; i < scores.length; i++) {
-            int s = scores[i];
-            System.out.println(s);
+
+        AfficherTableau(scores);
+        int max = TableauGrand(scores);
+        System.out.println("Max = " + max);
+
+        boolean resultat = TableauInf(scores);
+        if (resultat) {
+            System.out.println("Le tableau contient au moins une valeur inférieure à 10.");
+        } else {
+            System.out.println("Le tableau ne contient aucune valeur inférieure à 10.");
         }
 
-       int Moyenne =  scores[0] + scores[1] + scores[2] + scores[3] + scores[4] + scores[5] + scores[6];
-        System.out.println(Moyenne);
-        int div = Moyenne / 7;
-        System.out.println(div);
-    }
+
+   }
 
 }
